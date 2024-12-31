@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D New Year Greeting Card</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a;
+        }
+
+        .card {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+
+        .front {
+            background-color: #ff6347;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .back {
+            background-color: #008080;
+            font-size: 1.5rem;
+            text-align: left;
+            padding: 30px;
+            width: 80%;
+            box-sizing: border-box;
+            line-height: 1.8;
+            transform: rotateY(180deg);
+        }
+
+        .back h2 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card {
+                width: 95%;
+                height: 95%;
+            }
+            .front, .back {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation effect */
+        @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .celebrate {
+            animation: celebrate 1s ease-in-out infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-side front">
+                <div class="celebrate">
+                    <h1>🎉 Happy New Year! 🎉</h1>
+                    <p>Let’s celebrate and make the world a better place together!</p>
+                </div>
+            </div>
+            <div class="card-side back">
+                <h2>Dear Friend,</h2>
+                <p>Wishing you a joyful, prosperous, and fulfilling year ahead. May this New Year bring peace, happiness, and success in all your endeavors. Let’s embrace the challenges, cherish every moment, and make this year unforgettable!</p>
+                <p>Happy New Year once again! 🎉</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Add a simple effect when the page is loaded
+        window.addEventListener("load", () => {
+            document.querySelector('.front h1').style.animation = "celebrate 1s ease-in-out infinite";
+        });
+    </script>
+
+</body>
+</html>
